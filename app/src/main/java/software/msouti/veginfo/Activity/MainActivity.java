@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements VegAdapter.ListIt
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        header.setContentDescription(getString(R.string.app_name));
         list= new ArrayList<>();
         list= Objects.requireNonNull(getIntent().getExtras()).getParcelableArrayList("list");
         toolbar.setTitle(R.string.app_name);
@@ -77,8 +79,8 @@ public class MainActivity extends AppCompatActivity implements VegAdapter.ListIt
             intent.putExtra(getString(R.string.intentListKey),list.get(clickedItemIndex));
         }else {
             intent.putExtra(getString(R.string.intentListKey),result.get(clickedItemIndex));
-
         }
+
         startActivity(intent);
     }
 
@@ -110,12 +112,12 @@ public class MainActivity extends AppCompatActivity implements VegAdapter.ListIt
                             result.add(list.get(i));
                         }
                     }
-                    adapter = new VegAdapter(MainActivity.this, result,MainActivity.this);
+                    adapter = new VegAdapter(MainActivity.this, result);
                     recyclerView.setAdapter(adapter);
 
                 }else {
                     result=null;
-                    adapter = new VegAdapter(MainActivity.this, list,MainActivity.this);
+                    adapter = new VegAdapter(MainActivity.this, list);
                     recyclerView.setAdapter(adapter);
                 }
                 return true;
@@ -140,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements VegAdapter.ListIt
         LayoutAnimationController controller=
                 AnimationUtils.loadLayoutAnimation(context,R.anim.layout_slide_from_bot);
 
-        adapter = new VegAdapter(this, list,MainActivity.this);
+        adapter = new VegAdapter(this, list);
         rView.setAdapter(adapter);
         rView.setLayoutAnimation(controller);
         rView.getAdapter().notifyDataSetChanged();
@@ -149,7 +151,6 @@ public class MainActivity extends AppCompatActivity implements VegAdapter.ListIt
 
     }
 
-    //Capstone stage2 Final steps
-    //TODO: setup open VegDetailsActivity Animations
-    //TODO: be sure that every Strings is saved in string.xml
+
+
 }

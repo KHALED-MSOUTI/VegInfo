@@ -19,6 +19,7 @@
     <string name="plz_wait">please wait a moment !</string>
     <string name="font_error">Can not set custom font</string>
     <string name="font_error2"> instead of </string>
+    <string name="no_connection_splash">"You should have an active internet Connection"</string>
 
     <string name="app_id" translatable="false">ca-app-pub-2763654797789696~1616098494</string>
     <string name="sample_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>

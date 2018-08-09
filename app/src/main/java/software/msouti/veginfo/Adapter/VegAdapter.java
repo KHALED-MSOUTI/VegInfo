@@ -2,7 +2,6 @@ package software.msouti.veginfo.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +18,10 @@ import software.msouti.veginfo.Utils.VegListType;
 public class VegAdapter extends RecyclerView.Adapter<VegAdapter.VegViewHolder> {
 
     final private ListItemClickListener mOnClickListener;
-    ArrayList<VegListType> list;
-    Context context;
-    public VegAdapter(ListItemClickListener mOnClickListener, ArrayList<VegListType> list, Context context) {
+    private ArrayList<VegListType> list;
+    public VegAdapter(ListItemClickListener mOnClickListener, ArrayList<VegListType> list) {
         this.mOnClickListener = mOnClickListener;
         this.list=list;
-        this.context=context;
     }
 
     @NonNull
@@ -39,7 +36,7 @@ public class VegAdapter extends RecyclerView.Adapter<VegAdapter.VegViewHolder> {
         if (list!= null){
             Tools.loadPosterImage( list.get(position).getImagePath(), holder.imageView);
             holder.titleTextView.setText(list.get(position).getTitle());
-            ViewCompat.setTransitionName(holder.imageView, context.getString(R.string.transition_name));
+            holder.imageView.setContentDescription(list.get(position).getTitle());
         }else{
             Tools.loadDefaultImage(holder.imageView);
             Tools.setBlankTitle(holder.titleTextView);

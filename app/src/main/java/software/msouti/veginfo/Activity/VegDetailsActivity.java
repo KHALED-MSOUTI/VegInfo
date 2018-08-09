@@ -39,10 +39,11 @@ public class VegDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_veg_details);
         ButterKnife.bind(this);
-        VegListType list = (VegListType) Objects.requireNonNull(getIntent().getExtras()).get("list");
+        VegListType list = (VegListType) Objects.requireNonNull(getIntent().getExtras()).get(getString(R.string.intentListKey));
 
         toolbar.setTitle(Objects.requireNonNull(list).getTitle());
         Tools.loadPosterImage(list.getImagePath(),header);
+        header.setContentDescription(list.getTitle());
         whatToLookFore.setText(list.getWhatToLookFor());
         availability.setText(list.getAvailability());
         stor.setText(list.getStore());

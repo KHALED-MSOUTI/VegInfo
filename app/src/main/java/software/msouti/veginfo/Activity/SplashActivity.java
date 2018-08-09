@@ -136,7 +136,18 @@ public class SplashActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             try {
+                //wait until Animaition finish
                 sleep(3000);
+                // then check if data ready or not
+                for (int i=0;i<10;i++){
+                    // Wait time max 12 second
+                    if (retArray.size()==0){
+                        // if not wait for another second
+                        sleep(1000);
+                    }else{
+                        break;
+                    }
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -147,7 +158,13 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            done();
+            //ConnectivityTest and if There is no Data
+            if(!Tools.isConnectionAvailable(SplashActivity.this) && retArray.size()==0){
+                Toast.makeText(SplashActivity.this, getString(R.string.no_connection_splash), Toast.LENGTH_SHORT).show();
+            }else{
+                done();
+
+            }
         }
     }
 

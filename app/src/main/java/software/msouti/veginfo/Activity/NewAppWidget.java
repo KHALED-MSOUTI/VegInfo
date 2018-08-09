@@ -5,12 +5,9 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.widget.ImageView;
 import android.widget.RemoteViews;
 
 import com.google.firebase.database.ChildEventListener;
@@ -18,19 +15,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
 import software.msouti.veginfo.R;
-import software.msouti.veginfo.Utils.Database;
-import software.msouti.veginfo.Utils.Tools;
 import software.msouti.veginfo.Utils.VegListType;
 
-import static java.lang.Thread.getAllStackTraces;
 import static java.lang.Thread.sleep;
 
 /**
