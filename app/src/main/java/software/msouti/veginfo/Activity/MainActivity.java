@@ -4,11 +4,8 @@ import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.RectF;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,10 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import android.view.animation.GridLayoutAnimationController;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -34,7 +29,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import software.msouti.veginfo.Adapter.VegAdapter;
 import software.msouti.veginfo.R;
-import software.msouti.veginfo.Utils.Tools;
 import software.msouti.veginfo.Utils.VegListType;
 
 public class MainActivity extends AppCompatActivity implements VegAdapter.ListItemClickListener {
